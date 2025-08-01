@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="description" content="High-Quality Full-Head 3D Model Reconstruction from Any Single Portrait Image">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>High-Quality Full-Head 3D Model Reconstruction from Any Single Portrait Image</title>
+  <title>High-Quality Full-Head 3D Avatar Generation from Any Single Portrait Image</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -24,27 +24,11 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-<!--  <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>-->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customised options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-    });
-  </script>
+  <script src="./static/js/katex.js"></script>
 
   <style>
     .image-group {
@@ -73,7 +57,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <br><br><br>
-            <h1 class="title is-1 publication-title">High-Quality Full-Head 3D Model Reconstruction from Any Single Portrait Image</h1>
+            <h1 class="title is-1 publication-title">High-Quality Full-Head 3D Avatar Generation from Any Single Portrait Image</h1>
             <h4 class="title is-4 publication-title" style="color:#5a6268;"> In Submission</h4>
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -125,34 +109,34 @@
           <div class="container">
             <div id="results-carousel" class="carousel results-carousel">
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video0" muted preload autoplay loop width="100%">
                   <source src="./static/videos/2.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video1" muted preload autoplay loop width="100%">
                   <source src="./static/videos/3.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video2" muted preload autoplay loop width="100%">
                   <source src="./static/videos/7.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video3" muted preload autoplay loop width="100%">
                   <source src="./static/videos/8.mp4" type="video/mp4">
                 </video>
                 <br>
               </div>
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video4" muted preload autoplay loop width="100%">
                   <source src="./static/videos/443.mp4" type="video/mp4">
                 </video>
                 <br>
               </div>
               <div class="item">
-                <video id="replay-video" controls muted preload autoplay loop width="100%">
+                <video id="replay-video5" muted preload autoplay loop width="100%">
                   <source src="./static/videos/66804.mp4" type="video/mp4">
                 </video>
               </div>
@@ -176,19 +160,20 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              In this work, we introduce a novel high-fidelity full-head 3D model reconstruction method from a single
-              portrait image, regardless of perspective, expression, or accessories. Despite significant advancements
-              in object reconstruction in recent years, most methods struggle to produce high-quality 3D portraits.
-              The lack of crucial information, such as identity, expression, hair, and accessories, limits these
-              approaches in generating realistic 3D head models. To address these challenges, we construct <strong>
-              a new high-quality dataset</strong> containing 227 sequences of digital human portraits captured from 96
-              different perspectives, totalling 21,792 frames, featuring diverse expressions and accessories. To further
-              improve performance, we propose a multi-view diffusion named <strong>ID-TS diffusion model</strong>, which
-              integrate identity and expression information into the two-stage multi-view diffusion process to enhance
-              facial consistency across views. After that, we generate an orbital video around the portrait consisting
-              of 16 multi-view frames, which can be used for optimizing <strong>feed-forward 3D Gaussian reconstruction
-              </strong>for a single subject. Extensive experiments demonstrate that our method demonstrates robust
-              performance across challenging scenarios, including side-face angles and complex accessories.
+              In this work, we introduce a novel high-fidelity full-head 3D avatar generation method from a single
+              image, regardless of perspective, style, expression, or accessories. Prior works often fail to preserve
+              consistent head geometry and facial details, primarily due to their limited capacity in modeling
+              fine-grained facial textures and maintaining identity information. To address these challenges, we
+              construct <strong>a new high-quality dataset</strong> containing 227 sequences of digital human portraits
+              captured from 96 different perspectives, totalling 21,792 frames, featuring high-quality facial texture
+              details. To further improve performance, we propose a novel multi-view diffusion named <strong>ID-TS
+              diffusion model</strong>, which integrate identity and expression information into the two-stage
+              multi-view diffusion process. The low-resolution stage ensures structural consistency of heads across
+              multiple views, while the high-resolution stage preserves facial detail fidelity and coherence. Finally,
+              we propose <strong>an enhanced feed-forward Gaussian avatar reconstruction method</strong> that optimizes
+              the network on multi-view images of each single subject, significantly improving 3D facial texture
+              details. Extensive experiments show that our method demonstrates robust performance across challenging
+              scenarios, while showcasing broad applicability across numerous downstream tasks.
             </p>
           </div>
         </div>
@@ -221,18 +206,18 @@
     <div class="content has-text-centered">  
       <h2 class="title is-3" ><strong>Method</strong></h2>
       <div class="content has-text-justified" style="font-size: 0.9rem; line-height: 1.6;">  
-        <img src="./static/imgs/pipeline.png" alt="Image 1" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; margin-top: 20px;">
+        <img src="./static/imgs/pipeline.jpg" alt="Image 1" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; margin-top: 20px;">
         <p>
-          <strong>(a) In the first stage,</strong> we apply position embedding to camera pose $e$ and noise step $t$, then
-          concatenate them together. These are then fed into the residual module of the UNet. Additionally, we input
-          the conditional image's CLIP embedding and ArcFace embedding into the transformer module for cross-attention.
-          The conditional image $x$ is also encoded into the latent space of the VAE Encoder $E$, and the concatenated
-          with the latent space state $z_t$.
+          <strong>(a) ID-TS Diffusion Process.</strong> In the low-resolution stage, we embed camera pose $e$ and noise
+          step $t$ via positional encoding, concatenate them, and feed them into the U-Net’s residual blocks. The
+          conditional image $x$ is encoded into the latent space of the VAE encoder $E$, concatenated with noise, and
+          processed alongside CLIP and ArcFace embeddings via cross-attention in the transformer block. In the
+          high-resolution stage, we upsample the previous outputs, do element-wise addition with latent noise,
+          and denoise them.
           </br>
-          <strong>(b) After generating 16 multi-view frames,</strong> we use the front, left, back,
-          right images $\hat{J}$ as the inputs, with the rest of the frames as supervising data for Gaussian-producing
-          UNet fine-tuning. In this stage, we integrate conditional image's ArcFace embedding into the network as well.
-          Finally, we get Gaussian point cloud $P$.
+          <strong>(b) Gaussian Head Generation.</strong> Multi-view frames are generated, with front/left/back/right
+          images $\hat J$ as inputs and remaining frames as supervision for 3D U-Net optimization, yielding a Gaussian
+          point cloud $P$.
         </p>
       </div>
     </div>
